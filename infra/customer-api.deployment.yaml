@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-api
+  namespace: core
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: customer-api
+  template:
+    metadata:
+      labels:
+        app: customer-api
+    spec:
+      containers:
+        - name: customer-api
+          image: io.fullcraft/customer-api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /config
+              name: customer-api-configuration-volume
+      volumes:
+        - name: customer-api-configuration-volume
+          configMap:
+            name: customer-api
