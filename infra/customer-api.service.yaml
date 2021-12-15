@@ -4,6 +4,7 @@ metadata:
   name: customer-api
   namespace: core
 spec:
+  type: ClusterIP
   selector:
     app: customer-api
   ports:

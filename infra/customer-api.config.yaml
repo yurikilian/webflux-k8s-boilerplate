@@ -5,5 +5,5 @@ metadata:
   namespace: core
 data:
   application.properties: |
-    customer.name=Fernanda Silva
+    customer.name=Customer name
     spring.main.banner-mode=off
